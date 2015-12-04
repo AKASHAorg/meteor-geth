@@ -6,7 +6,7 @@ Package.describe({
   // Brief, one-line summary of the package.
   summary:       'ethereum geth for meteor dapps',
   // URL to the Git repository containing the source code for this package.
-  git:           'https://github.com/AkashaProject/meteor-geth.git',
+  git:           'https://github.com/AkashaProject/meteor-geth',
   // By default, Meteor will default to using README.md for documentation.
   // To avoid submitting documentation, set this field to null.
   documentation: 'README.md'
@@ -22,7 +22,7 @@ Package.onUse(function (api) {
   api.use('akasha:request@2.67.0', 'server');
   api.use('akasha:shelljs@0.5.3', 'server');
   api.use('akasha:adm-zip@0.4.7', 'server');
-  api.use('practicalmeteor:loglevel@1.1.0_2', 'server')
+  api.use('practicalmeteor:loglevel@1.1.0_2', 'server');
   api.addFiles(['lib/geth.js'], 'server');
   api.export('GethConnector', 'server');
 });
