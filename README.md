@@ -9,23 +9,31 @@
 ## How to use it
 
  * On server side create a global variable just before `Meteor.startup`:
-   ```
+ * 
+   ```javascript
    gethObj = false;
    Meteor.startup(function () {
    	gethObj = new GethConnector(); //you can pass geth executable location as param also
    }
    ```
+   
  * Then you can use anywhere on server side these methods:
-  ```
+ 
+  ```javascript
   gethObj.start(); //start geth process, you can find logs in .meteor/local/log/gethProcess.log
   ```
+  
   there are some params you can send when starting get, these are the default ones:
-  ```
+  
+  ```javascript
   gethObj.start(dataDir, testNet = true, extraOptions = ['--shh', '--rpc', '--rpccorsdomain', 'localhost'])
   ```
-  ```
+  
+  ```javascript
   gethObj.stop();//stop geth process
   ```
-  ```
+  
+  ```javascript
   gethObj.ipcCall(name, params, callback));//send json-rpc request, you can find all available methods here http://https://github.com/ethereum/wiki/wiki/JSON-RPC#json-rpc-methods 
   ```
+
