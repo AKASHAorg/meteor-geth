@@ -1,6 +1,6 @@
 # This package is for [ethereum](https://ethereum.org/) dapp development
 
-## What's does this package:
+## What does this package:
  * Exports a global class named `GethConnector` available only on **server**
  * Downloads geth binaries
  * Can start geth process
@@ -23,7 +23,7 @@
   gethObj.start(); //start geth process, you can find logs in .meteor/local/log/gethProcess.log
   ```
   
-  there are some params you can send when starting get, these are the default ones:
+  there are some params you can send when starting geth, these are the default ones:
   
   ```javascript
   gethObj.start(dataDir, testNet = true, extraOptions = ['--shh', '--rpc', '--rpccorsdomain', 'localhost'])
