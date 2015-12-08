@@ -1,4 +1,4 @@
-const packageVersion = '0.0.2';
+const packageVersion = '0.0.3';
 
 Package.describe({
   name:          'akasha:meteor-geth',
