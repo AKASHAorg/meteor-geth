@@ -1,4 +1,4 @@
-const packageVersion = '0.0.4';
+const packageVersion = '0.0.5';
 
 Package.describe({
   name:          'akasha:meteor-geth',
@@ -23,8 +23,9 @@ Package.onUse(function (api) {
   api.use('akasha:request@2.67.0', 'server');
   api.use('akasha:shelljs@0.5.3', 'server');
   api.use('akasha:adm-zip@0.4.7', 'server');
+  api.use('akasha:es6-symbol@0.0.1', 'server');
   api.use('practicalmeteor:loglevel@1.1.0_2', 'server');
-  api.addFiles(['lib/geth.js'], 'server');
+  api.addFiles(['lib/gethConnector.js'], 'server');
   api.export('GethConnector', 'server');
 });
 
@@ -32,5 +33,5 @@ Package.onTest(function (api) {
   api.use('ecmascript');
   api.use('sanjo:jasmine@0.20.3');
   api.use('akasha:meteor-geth@' + packageVersion);
-  api.addFiles('tests/server/GethConnector-spec.js', 'server');
+  api.addFiles('tests/server/integration/GethConnector-spec.js', 'server');
 });

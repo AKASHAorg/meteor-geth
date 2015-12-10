@@ -41,11 +41,11 @@ describe('GethConnector', function () {
     });
 
     it('can list accounts', function (done) {
-      gethObj.ipcCall('personal_listAccounts', [], function (err, resp) {
+      gethObj.ipcCall('personal_listAccounts', [], Meteor.bindEnvironment(function (err, resp) {
         expect(err).toBe(null);
         expect(resp).toBeDefined();
         done();
-      });
+      }));
     });
   });
 
