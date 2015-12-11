@@ -39,12 +39,6 @@
   gethObj.start(); // logs in .meteor/local/log/gethProcess.log
   ```
   
-  there are some params you can send when starting geth, these are the default ones:
-  
-  ```javascript
-  gethObj.start() // start geth process
-  ```
-  
   ```javascript
   gethObj.stop();//stop geth process
   ```
