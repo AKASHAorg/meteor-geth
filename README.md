@@ -42,12 +42,16 @@
   there are some params you can send when starting geth, these are the default ones:
   
   ```javascript
-  gethObj.start({executable:'/usr/bin/geth', dataDir:'.ethereum/datadir', privateNet:true, testNet:false,
-    extraOptions: ['--shh', '--rpc', '--rpccorsdomain', 'localhost']})
+  gethObj.start() // start geth process
   ```
   
   ```javascript
   gethObj.stop();//stop geth process
+  ```
+
+  ```javascript
+  gethObj.setOptions({executable:'/usr/bin/geth', dataDir:'.ethereum/datadir', privateNet:true, testNet:false,
+    extraOptions: ['--shh', '--rpc', '--rpccorsdomain', 'localhost']})
   ```
 
   ```javascript
