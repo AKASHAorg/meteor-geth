@@ -52,7 +52,7 @@ describe('GethConnector', function () {
       }));
     });
 
-    it('can get hashrate', function(done){
+    it('can get peers', function(done){
       gethObj.ipcCall('net_listening', [], Meteor.bindEnvironment(function (err, resp) {
         expect(err).toBe(null);
         expect(resp).toBeDefined();
