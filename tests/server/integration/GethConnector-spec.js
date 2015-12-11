@@ -1,7 +1,7 @@
 describe('GethConnector', function () {
   let gethObj;
   beforeAll(function () {
-    gethObj = new GethConnector();
+    gethObj = GethConnector.getInstance();
   });
 
   beforeEach(function () {
@@ -23,7 +23,7 @@ describe('GethConnector', function () {
   });
 
   describe("geth ipc", function () {
-    beforeAll(function (done) {
+    beforeEach(function (done) {
       if (!gethObj.isRunning()) {
         let isRunning = gethObj.start();
         if (isRunning) {
@@ -32,6 +32,10 @@ describe('GethConnector', function () {
       } else {
         done();
       }
+    });
+
+    afterEach(function(){
+      gethObj.stop();
     });
 
     it('can connect to ipc', function (done) {
@@ -47,6 +51,22 @@ describe('GethConnector', function () {
         done();
       }));
     });
+
+    it('can get hashrate', function(done){
+      gethObj.ipcCall('net_listening', [], Meteor.bindEnvironment(function (err, resp) {
+        expect(err).toBe(null);
+        expect(resp).toBeDefined();
+        done();
+      }));
+    });
+
+    it('can get peer count', function(done){
+      gethObj.ipcCall('net_peerCount', [], Meteor.bindEnvironment(function (err, resp) {
+        expect(err).toBe(null);
+        expect(resp).toBeDefined();
+        done();
+      }));
+    })
   });
 
 });

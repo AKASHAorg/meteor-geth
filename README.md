@@ -27,7 +27,7 @@
 	};
 
 	Meteor.startup(function () {
-	  gethObj = new GethConnector();
+	  gethObj = GethConnector.getInstance(); // grab singleton instance anywhere
 	  gethObj.setLogLevel('warn'); // info is default
 	  testGeth();
 	});
@@ -36,13 +36,14 @@
  * Then you can use anywhere on server side these methods:
  
   ```javascript
-  gethObj.start(); //start geth process, you can find logs in .meteor/local/log/gethProcess.log
+  gethObj.start(); // logs in .meteor/local/log/gethProcess.log
   ```
   
   there are some params you can send when starting geth, these are the default ones:
   
   ```javascript
-  gethObj.start(dataDir, testNet = true, extraOptions = ['--shh', '--rpc', '--rpccorsdomain', 'localhost'])
+  gethObj.start({executable:'/usr/bin/geth', dataDir:'.ethereum/datadir', privateNet:true, testNet:false,
+    extraOptions: ['--shh', '--rpc', '--rpccorsdomain', 'localhost']})
   ```
   
   ```javascript
